@@ -7,7 +7,7 @@ This example shows a simple Symphony chat bot using the [SymphonyOSS symphony-ja
 ## Pre-requisites
 
 1. Service account with a valid certificate for the bot
-2. Extension API application with a entity renderer for the structured object
+2. Extension API application with a [entity renderer for the structured object](https://github.com/symphonysa/Structured-Object-Renderer)
 
 ## Overview
 
