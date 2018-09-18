@@ -76,7 +76,7 @@ public class TradeBot implements ChatListener, ChatServiceListener, RoomServiceE
             message2 = new SymMessage();
 
             message2.setEntityData("{\"summary\": { \"type\": \"com.symphony.fa\", \"version\":  \"1.0\", \"userEmail\":  \""+email+"\" }}");
-            message2.setMessage("<messageML><div class='entity' data-entity-id='summary'><b><i>Please install the FA application to render this entity.</i></b></div></messageML>");
+            message2.setMessage("<messageML><div class='entity' data-entity-id='summary'><b><i>PWMアプリをインストールしてください。</i></b></div></messageML>");
             try {
                 symClient.getMessagesClient().sendMessage(message.getStream(), message2);
             } catch (MessagesException e) {
@@ -113,7 +113,7 @@ public class TradeBot implements ChatListener, ChatServiceListener, RoomServiceE
                 symMessage.getMessage());
 
         if (symMessage.getMessage().contains("portfolio")) {
-            symMessage.setMessage("<messageML>No pending actions by agent, all mandates under threshold.</messageML>");
+            symMessage.setMessage("<messageML>エージェントが必要なアクションはありません。マンデートはすべて制限値以内です。</messageML>");
             Stream stream = new Stream();
             stream.setId(symMessage.getStreamId());
 
@@ -190,7 +190,7 @@ public class TradeBot implements ChatListener, ChatServiceListener, RoomServiceE
             SymMessage message2 = new SymMessage();
 
             message2.setEntityData("{\"summary\": { \"type\": \"com.symphony.fa\", \"version\":  \"1.0\", \"userEmail\":  \""+email+"\" }}");
-            message2.setMessage("<messageML><div class='entity' data-entity-id='summary'><b><i>Please install the FA application to render this entity.</i></b></div></messageML>");
+            message2.setMessage("<messageML><div class='entity' data-entity-id='summary'><b><i>PWMアプリをインストールしてください。</i></b></div></messageML>");
 
 
             symClient.getMessagesClient().sendMessage(symClient.getStreamsClient().getStream(remoteUsers), message2);
@@ -208,7 +208,7 @@ public class TradeBot implements ChatListener, ChatServiceListener, RoomServiceE
         Stream stream = new Stream();
         stream.setId(streamId);
         SymMessage message2 = new SymMessage();
-        message2.setMessage("<messageML><card accent='tempo-text-color--green'>Trade initiated<br/><hr /><b>"+action+" "+numShares+" <cash tag='"+symbol+"'/> @ "+price+"</b></card></messageML>");
+        message2.setMessage("<messageML><card accent='tempo-text-color--green'>取引開始<br/><hr /><b>"+action+" "+numShares+" <cash tag='"+symbol+"'/> @ "+price+"</b></card></messageML>");
 
         try {
             symClient.getMessagesClient().sendMessage(stream, message2);
